@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kourosh Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+  <div class="castle">🏰</div>
+  <h1>
+    Welcome to<br>
+    <span>Kourosh Land™</span>
+  </h1>
+  <p>Where overthinking is a lifestyle.</p>
+</div>
+
+    <button onclick="showPage('home')">🏠 Home</button>
+    <button onclick="showPage('game')">🃏 Memory Game</button>
+  </aside>
+
+  <main>
+
+    <section id="home" class="page active">
+      <div class="home-grid">
+
+        <div class="hero-panel">
+          <p class="small-title">OFFICIAL CHARACTER FILE</p>
+
+          <h2>KOUROSH</h2>
+
+       
+            
+
+          <div class="profile-box game-dossier">
+            <p><span>NAME</span> Kourosh Gholamzadeh Rizi</p>
+            <p><span>BIRTHDAY</span> 23 January</p>
+            <p><span>Instagram</span> @_Kourowsh</p>
+           <p><span>ORIGIN</span> 🇮🇷 Iranian • 🇦🇿 Azerbaijani (According to Himself)</p>
+            <p><span>CLASS</span> Overthinking Analyst</p>
+            <p><span>STATUS</span> Still processing a simple question...</p>
+          </div>
+
+          <div class="bio-card">
+            <h3>📄 Biography</h3>
+
+            <p>
+              Kourosh is a pharmacy student who somehow turned overthinking into a full-time profession.
+              Scientists are still investigating how one human can create forty-seven different solutions
+              to a problem that never existed in the first place.
+            </p>
+
+            <p>
+              His day begins at <strong>5:00 AM</strong>. Not because he has to... but because his brain
+              has already started planning the next six months before the alarm even rings. While normal
+              people are sleeping, Kourosh is probably learning physics, organizing his goals, redesigning
+              his life plan, and wondering if gravity could be optimized.
+            </p>
+
+            <p>
+              ⚠️ <strong>Warning:</strong> Never ask him a simple question.
+              “What time is it?” somehow becomes a 20-minute presentation with diagrams, historical context,
+              a physics explanation, three alternative theories, and a motivational speech about time management.
+            </p>
+
+            <p>
+              He is also obsessed with learning Turkish. Can he speak it fluently? Absolutely not.
+              Will that stop him from confidently using the five words he knows? Also absolutely not.
+            </p>
+
+            <p>
+              If he is <strong>30 seconds late</strong>, prepare for a full dramatic performance.
+              Missing one bus? To Kourosh, that is basically the opening scene of a disaster movie.
+            </p>
+
+            <p>
+              He treats every challenge like the final boss of a video game. Losing is unacceptable,
+              shortcuts are illegal, and “good enough” is considered a personal attack.
+            </p>
+
+            <p>
+              Rumor has it his brain has over <strong>500 tabs open</strong> at all times. Half are about
+              pharmacy, half are about physics, a few are trying to learn Turkish, and the rest are random
+              questions nobody asked but somehow become fascinating.
+            </p>
+
+            <p>
+              <strong>Life is never simple when Kourosh is involved... and that is exactly what makes him entertaining.</strong>
+            </p>
+          </div>
+
+          <div class="bio-card">
+            <h3>🏆 Achievement Board</h3>
+
+            <div class="achievement">
+              <h4>🥇 Master of Overthinking</h4>
+              <p>Unlocked after analysing one simple question for 47 minutes.</p>
+            </div>
+
+            <div class="achievement">
+              <h4>⏰ 5 AM Warrior</h4>
+              <p>Started the day before the sun even agreed to participate.</p>
+            </div>
+
+            <div class="achievement">
+              <h4>🎭 Drama Specialist</h4>
+              <p>Turned being 30 seconds late into an emotional disaster movie.</p>
+            </div>
+
+            <div class="achievement">
+              <h4>🇹🇷 Turkish Beginner</h4>
+              <p>Knows five words and uses them with dangerous confidence.</p>
+            </div>
+
+            <button class="big-btn" onclick="showPage('game')">
+              🎮 Play Memory Game
+            </button>
+          </div>
+
+        </div>
+
+        <div class="photo-panel">
+          <img src="images/kourosh1.jpg" alt="Kourosh">
+
+          <h3>Character Profile</h3>
+          <p>Legendary Human</p>
+
+          <div class="mini-stats">
+            <div><span>🧠 Thinking</span><strong>15%</strong></div>
+            <div><span>🤯 Overthinking</span><strong>100%</strong></div>
+            <div><span>🔍 Analysing</span><strong>99%</strong></div>
+            <div><span>🎭 Drama When Late</span><strong>100%</strong></div>
+            <div><span>🇹🇷 Turkish Fluency</span><strong>3%</strong></div>
+            <div><span>⚠️ Giving A Straight Answer</span><strong>2%</strong></div>
+            <div><span>😴 Sarah's Sleep Disrupted</span><strong>100%</strong></div>
+            <div><span>🎙️ Chatty Level</span><strong>100%</strong></div>
+            <div><span>😈 Professional Annoyer</span><strong>99.99%</strong></div>
+            <div><span>⏰ 6:00 AM Calls to Sarah</span><strong>100%</strong></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="game" class="page">
+
+      <div class="mission-panel">
+        <div>
+          <p class="small-title">MISSION BRIEFING</p>
+          <h2>🃏 Memory Game</h2>
+          <p class="game-info">
+            Find every matching version of Kourosh hidden inside the memory matrix.
+          </p>
+        </div>
+
+        <button onclick="restartGame()">Restart</button>
+      </div>
+
+      <div class="instruction-strip">
+        <div><strong>Step 1</strong><p>Click one card.</p></div>
+        <div><strong>Step 2</strong><p>Click a second card.</p></div>
+        <div><strong>Step 3</strong><p>If they match, they stay open.</p></div>
+        <div><strong>Goal</strong><p>Find all 6 Kourosh pairs.</p></div>
+      </div>
+
+      <div class="score">
+        <p>Moves: <span id="moves">0</span></p>
+        <p>Matches: <span id="matches">0</span>/6</p>
+      </div>
+
+      <div id="game-board" class="game-board"></div>
+
+      <p id="message"></p>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
