@@ -9,16 +9,14 @@ function showPage(pageId) {
   }
 }
 
-
-  const images = [
-  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh1.jpg",
-  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh2.jpg",
-  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh3.jpg",
-  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh4.jpg",
-  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh5.jpg",
-  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh6.jpg"
+const images = [
+  "kourosh1.jpg",
+  "kourosh2.jpg",
+  "kourosh3.jpg",
+  "kourosh4.jpg",
+  "kourosh5.jpg",
+  "kourosh6.jpg"
 ];
-
 
 const funnyMessages = [
   "Match found: overthinking level increased 🧠",
@@ -65,11 +63,7 @@ function createBoard() {
     card.innerHTML = `
       <div class="front">?</div>
       <div class="back">
-        <img 
-          src="${image}" 
-          alt="Kourosh photo"
-          onerror="this.onerror=null; this.src='images/${image}';"
-        >
+        <img src="${image}" alt="Kourosh photo">
       </div>
     `;
 
@@ -124,7 +118,7 @@ function checkMatch() {
       setTimeout(() => {
         if (message) {
           message.innerHTML =
-            "🎉 Mission complete! You found all versions of Kourosh.<br>Final result: 100% Overthinker, 99% Analyst, 100% Sarah Sleep Disruptor.";
+            "🎉 Mission complete! You found all 6 versions of Kourosh.<br>Final result: 100% Overthinker, 99% Analyst, 100% Sarah Sleep Disruptor.";
         }
       }, 500);
     }
