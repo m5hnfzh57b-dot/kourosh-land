@@ -3,23 +3,22 @@ function showPage(pageId) {
     page.classList.remove("active");
   });
 
-  document.getElementById(pageId).classList.add("active");
+  const selectedPage = document.getElementById(pageId);
+  if (selectedPage) {
+    selectedPage.classList.add("active");
+  }
 }
 
-const images = [
-  "images/kourosh1.jpg",
-  "images/kourosh1.jpg",
-  "images/kourosh2.jpg",
-  "images/kourosh2.jpg",
-  "images/kourosh3.jpg",
-  "images/kourosh3.jpg",
-  "images/kourosh4.jpg",
-  "images/kourosh4.jpg",
-  "images/kourosh5.jpg",
-  "images/kourosh5.jpg",
-  "images/kourosh6.jpg",
-  "images/kourosh6.jpg"
+
+  const images = [
+  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh1.jpg",
+  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh2.jpg",
+  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh3.jpg",
+  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh4.jpg",
+  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh5.jpg",
+  "https://m5hnfzh57b-dot.github.io/kourosh-land/kourosh6.jpg"
 ];
+
 
 const funnyMessages = [
   "Match found: overthinking level increased 🧠",
@@ -27,7 +26,9 @@ const funnyMessages = [
   "Certified chatty energy detected 💬",
   "Complication specialist unlocked 🧩",
   "Simple task successfully made difficult ⚠️",
-  "New controversial opinion loading..."
+  "New controversial opinion loading...",
+  "Sarah's sleep has been disturbed again 😴",
+  "Turkish lesson loading... still 3% 🇹🇷"
 ];
 
 let firstCard = null;
@@ -41,15 +42,22 @@ const movesText = document.getElementById("moves");
 const matchesText = document.getElementById("matches");
 const message = document.getElementById("message");
 
-function shuffleCards() {
-  images.sort(() => Math.random() - 0.5);
+function shuffleCards(cards) {
+  return cards.sort(() => Math.random() - 0.5);
 }
 
 function createBoard() {
-  board.innerHTML = "";
-  shuffleCards();
+  if (!board) return;
 
-  images.forEach(image => {
+  board.innerHTML = "";
+
+  if (message) {
+    message.textContent = "";
+  }
+
+  const cardImages = shuffleCards([...images, ...images]);
+
+  cardImages.forEach(image => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.image = image;
@@ -57,7 +65,11 @@ function createBoard() {
     card.innerHTML = `
       <div class="front">?</div>
       <div class="back">
-        <img src="${image}" alt="Kourosh photo">
+        <img 
+          src="${image}" 
+          alt="Kourosh photo"
+          onerror="this.onerror=null; this.src='images/${image}';"
+        >
       </div>
     `;
 
@@ -80,7 +92,10 @@ function flipCard() {
 
   secondCard = this;
   moves++;
-  movesText.textContent = moves;
+
+  if (movesText) {
+    movesText.textContent = moves;
+  }
 
   checkMatch();
 }
@@ -93,23 +108,33 @@ function checkMatch() {
     secondCard.classList.add("matched");
 
     matches++;
-    matchesText.textContent = matches;
 
-    message.textContent =
-      funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+    if (matchesText) {
+      matchesText.textContent = matches;
+    }
+
+    if (message) {
+      message.textContent =
+        funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+    }
 
     resetCards();
 
-    if (matches === 6) {
+    if (matches === images.length) {
       setTimeout(() => {
-        message.innerHTML =
-          "🎉 Mission complete! You found all versions of Kourosh.<br>Final result: 100% Overthinker, 99% Analyst, 95% Chatty.";
+        if (message) {
+          message.innerHTML =
+            "🎉 Mission complete! You found all versions of Kourosh.<br>Final result: 100% Overthinker, 99% Analyst, 100% Sarah Sleep Disruptor.";
+        }
       }, 500);
     }
   } else {
     lockBoard = true;
-    message.textContent =
-      "Wrong match. He is now overanalysing why this happened...";
+
+    if (message) {
+      message.textContent =
+        "Wrong match. He is now overanalysing why this happened...";
+    }
 
     setTimeout(() => {
       firstCard.classList.remove("flip");
@@ -128,9 +153,19 @@ function resetCards() {
 function restartGame() {
   moves = 0;
   matches = 0;
-  movesText.textContent = 0;
-  matchesText.textContent = 0;
-  message.textContent = "";
+
+  if (movesText) {
+    movesText.textContent = 0;
+  }
+
+  if (matchesText) {
+    matchesText.textContent = 0;
+  }
+
+  if (message) {
+    message.textContent = "";
+  }
+
   resetCards();
   createBoard();
 }
